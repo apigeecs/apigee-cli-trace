@@ -1,5 +1,6 @@
 apigee-cli-trace
 ===================
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/504be22d91f04164a421851b1d9f8c91)](https://www.codacy.com/app/dallen/apigee-cli-trace?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=apigeecs/apigee-cli-trace&amp;utm_campaign=Badge_Grade)
 
 A utility providing a means of easily capturing trace messages for offline analysis from the command line.
 
@@ -23,19 +24,20 @@ Install globally:
 
 ## Usage
 
-	cli_trace = require("./package/apigee-cli-trace");
- 
-	cli_trace.capture({
-	    saveTo: "./trace-files/",
+	var trace = require("./package/apigee-cli-trace");
+
+	trace.capture({
 	    debug: true,
-	   	org: 'davidwallen2014',
-	    env: 'test',
-	    api: '24Solver',
-	    rev: '17',
-	    auth: 'Basic ZGFsbGfooFwaWdlZbarjb20nomszbSumITIz'
+	    org: "davidwallen2014",
+	    env: "prod",
+	    api: "24Solver",
+	    rev: "19",
+	    auth: "Basic encodeduserandsecret",
+	    saveTo: "./capturedTraceFiles"
 	});
 
-ApigeeCorporation$ node ./capture.js
+Execute the following:
+	ApigeeCorporation$ node ./capture.js
 
 Where capture.js is a script as outlined above. Note the script runs until cancelled.
 

@@ -1,14 +1,14 @@
 // packages
 var path = require("path"),
     fs = require("fs"),
-    Stream = require("stream"),
     https = require("https"),
     traceResponse = {
         "traceFiles": [],
         "curTraceFile": {}
     },
     traceMessages = {},
-    config;
+    config,
+    count = 0;
 
 function print(msg) {
     try {
@@ -60,6 +60,7 @@ function writeTraceFile(id, data) {
         fs.writeFile(config.saveTo + "/" + id + ".xml", data, function(err) {
             if (err) { console.error(err); }
         });
+        if ((++count % 10) === 0) print(count + " messages saved...");
     }
 }
 
@@ -85,9 +86,6 @@ function processTraceTransaction(trans) {
         res.on("end", function() {
             if (data.indexOf("<Completed>true</Completed>") > -1) {
                 writeTraceFile(id, data);
-            } else {
-                debugPrint("ignoring " + JSON.stringify(trans) + " will retry later.");
-                trans.inProcess = false;
             }
         });
     });
@@ -238,6 +236,13 @@ function buildAuth() {
 
 var capture = function(aConfig) {
     config = aConfig;
+
+    process.on('SIGINT', function() {
+        debugPrint("Caught interrupt signal");
+        print(count + " messages saved...");
+        process.exit();
+    });
+
     try {
         debugPrint("loading live trace data");
         config.debugSessionId = config.debugSessionId || uuid();
