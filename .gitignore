@@ -1,0 +1,25 @@
+npm-debug.log
+.DS_Store
+edge/*/java/target
+node_modules
+private*
+capturedTraceFiles/*
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+#paths
+bin
+.classpath
+.project
+.settings
+node_modules
+
+# Dependency directory
+# Commenting this out is preferred by some people, see
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+node_modules
