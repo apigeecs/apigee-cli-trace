@@ -8,22 +8,22 @@ A utility providing a means of easily capturing trace messages for offline analy
 
 The only prerequisites not handled during the installation are a functional Node environment, the availability of npm, and sufficient priviledges to run commands as adminstrator. The steps below are applicable to a Mac OS X environment, similar steps work under Linux or Windows. 
 	
-Clone the apigee-cli-trace repository to your local machine:
+Clone this project to your local machine:
 
-	ApigeeCorporation$ git clone https://github.com/apigeecs/apigee-cli-trace.git
+`$ git clone https://github.com/apigeecs/apigee-cli-trace.git`
 
 Alternatively you can download the zip file via the GitHub home page and unzip the archive.
 
 Navigate to the package directory:
 
-	ApigeeCorporation$ cd path/to/apigee-cli-trace/package/
+`$ cd path/to/apigee-cli-trace/package/`
 
 Install globally:
 
-	ApigeeCorporation$ sudo npm install . -g
+`$ sudo npm install . -g`
 
 ## Usage
-
+```
 	var trace = require("./package/apigee-cli-trace");
 
 	trace.capture({
@@ -35,11 +35,13 @@ Install globally:
 	    auth: "Basic encodeduserandsecret",
 	    saveTo: "./capturedTraceFiles"
 	});
+```
 
 Execute the following:
-	ApigeeCorporation$ node ./capture.js
 
-Where capture.js is a script as outlined above. Note the script runs until cancelled.
+`$ node ./capture.js`
+
+Where `capture.js` is a script as outlined above. Note the script runs until cancelled.
 
 Output includes a information summarizing captured trace messages:
 
