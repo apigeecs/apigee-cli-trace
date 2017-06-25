@@ -1,0 +1,31 @@
+{
+  "name": "apigee-coverage",
+  "version": "0.1.2",
+  "description": "Node module to facilitate capturing and saving trace files for offline analysis via CLI.",
+  "main": "main.js",
+  "bin": {
+    "apigee-coverage": "./main.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/apigeecs/apigee-cli-trace"
+  },
+  "keywords": [
+    "trace",
+    "Apigee",
+    "Edge"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apigeecs/apigee-cli-trace/issues"
+  },
+  "private": false,
+  "dependencies": {
+    "commander": "^2.10.0",
+    "https": "^1.0.0",
+    "path": "^0.12.7"
+  }
+}

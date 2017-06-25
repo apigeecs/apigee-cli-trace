@@ -6,47 +6,14 @@ A utility providing a means of easily capturing trace messages for offline analy
 
 ## Installation
 
-The only prerequisites not handled during the installation are a functional Node environment, the availability of npm, and sufficient priviledges to run commands as adminstrator. The steps below are applicable to a Mac OS X environment, similar steps work under Linux or Windows. 
-	
-Clone this project to your local machine:
-
-`$ git clone https://github.com/apigeecs/apigee-cli-trace.git`
-
-Alternatively you can download the zip file via the GitHub home page and unzip the archive.
-
-Navigate to the package directory:
-
-`$ cd path/to/apigee-cli-trace/package/`
-
-Install globally:
-
-`$ sudo npm install . -g`
+npm install apigee-coverage
 
 ## Usage
 ```
-	var trace = require("./package/apigee-cli-trace");
+	apigee-coverage -o askanapigeek -e test -a No-Target -r 4
+	Set Apigee_User and Apigee_Secret to utilize this feature as your environment variables
 
-	trace.capture({
-	    debug: true,
-	    org: "davidwallen2014",
-	    env: "prod",
-	    api: "24Solver",
-	    rev: "19",
-	    auth: "Basic encodeduserandsecret",
-	    saveTo: "./capturedTraceFiles"
-	});
 ```
-
-Execute the following:
-
-`$ node ./capture.js`
-
-Where `capture.js` is a script as outlined above. Note the script runs until cancelled.
-
-Output includes a information summarizing captured trace messages:
-
-Note that the utility captures a subset of traffic - it is not capable of nor intended to capture all traffic in a given run. Consider it as sampling as much as 90% or as low as 60% of traffic depending on the speed of your local machine, local network, and rate of traffic in the target proxy.
-
 ## Tests
 
   none yet
